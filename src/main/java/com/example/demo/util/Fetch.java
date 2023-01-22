@@ -7,6 +7,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Fetch {
+    
+    //Realiza un GET a una APIrest a los Wrappers
     public static String get(String route) throws IOException{
         URL url = new URL(String.format("http://localhost:8081%s", route));
         HttpURLConnection con = (HttpURLConnection) url.openConnection();

@@ -8,6 +8,10 @@ import com.example.demo.entidades.Localidad;
 public class CentroSanitarioManager {
     private static CentroSanitarioManager instance;
 
+    /**
+     * Método que devuelve el CentroSanitario instanciado aplicando el Singleton
+     * @return CentroSanitrario
+     */
     public static CentroSanitarioManager getInstance() {
         if (instance == null)
             instance = new CentroSanitarioManager();
@@ -17,11 +21,27 @@ public class CentroSanitarioManager {
     private HashMap<String, CentroSanitario> centers;
     private int currentId;
 
+    /**
+     * Crea un HashMap vacio de centros sanitarios
+     */
     private CentroSanitarioManager() {
         this.centers = new HashMap<String, CentroSanitario>();
         this.currentId = 0;
     }
 
+    /**
+     * Constructor que crea un Hospital con sus respectivos parámetros
+     * @param nombre
+     * @param tipo
+     * @param direccion
+     * @param codigoPostal
+     * @param longitud
+     * @param latitud
+     * @param telefono
+     * @param descripcion
+     * @param localidad
+     * @return Devuelve verdadero en el caso de que se cree el Hospital
+     */
     public boolean crearHospital(String nombre, String tipo, String direccion, int codigoPostal,
             double longitud, double latitud, int telefono, String descripcion, Localidad localidad) {
         String key = nombre +
@@ -44,6 +64,10 @@ public class CentroSanitarioManager {
         return true;
     }
 
+    /**
+     * Devuelve un array de objetos con los centros sanitarios.
+     * @return CentroSanitario[]
+     */
     public CentroSanitario[] obtenerCentrosSanitarios() {
         CentroSanitario[] centrosSanitarios = new CentroSanitario[this.centers.size()];
 
@@ -56,6 +80,9 @@ public class CentroSanitarioManager {
         return centrosSanitarios;
     }
 
+    /**
+     * Al realizar la Limpia el HashMap y el identificador inicial es 0
+     */
     public void clear(){
         this.centers.clear();
         this.currentId = 0;

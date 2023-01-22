@@ -64,30 +64,8 @@ public class LocalidadManager {
         return localidad;
     }
 
-    public void persistir() {
-        try {
-            PrintWriter writer = new PrintWriter(
-                    new OutputStreamWriter(new FileOutputStream(this.persistenceFilePath), "UTF-8"));
-            JSONArray json = new JSONArray();
-            JSONObject jsonObject;
-
-            for (Map.Entry<String, Localidad> set : this.towns.entrySet()) {
-                jsonObject = new JSONObject();
-                jsonObject.put("key", set.getKey());
-                jsonObject.put("codigo", set.getValue().getCodigo());
-                jsonObject.put("nombre", set.getValue().getNombre());
-                json.put(jsonObject);
-            }
-
-            writer.print(json.toString());
-
-            writer.flush();
-            writer.close();
-        } catch (FileNotFoundException e) {
-        } catch (UnsupportedEncodingException e) {
-        }
-    }
-
+    // Este método crea un Array que será devuelto tras haber sido rellenado con los objetos
+    // Localidad existentes.
     public Localidad[] obtenerLocalidades() {
         Localidad[] localidades = new Localidad[this.towns.size()];
 
@@ -99,7 +77,7 @@ public class LocalidadManager {
 
         return localidades;
     }
-
+    // Para limpiar el HashMap tras cada carga.
     public void clear() {
         this.towns.clear();
         this.currentId = 0;

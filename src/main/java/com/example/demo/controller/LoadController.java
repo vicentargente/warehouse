@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,11 +54,6 @@ public class LoadController {
         //Vaciamos la BD
         crud.clearTables();
 
-        //Vaciamos todas las entidades guardadas en cualquier momento
-        centroSanitarioManager.clear();
-        localidadManager.clear();
-        provinciaManager.clear();
-
         //Vaciamos el log
         logger.clear();
 
@@ -96,6 +92,34 @@ public class LoadController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return ResponseEntity.status(HttpStatus.OK).body(String.format("{\"results\":\"%s\"}", res));
+    }
+
+    @CrossOrigin
+    @DeleteMapping(value="/health-centers")
+    public ResponseEntity<String> clearHealthCenters(){
+        ProvinciaManager provinciaManager = ProvinciaManager.getInstance();
+        LocalidadManager localidadManager = LocalidadManager.getInstance();
+        CentroSanitarioManager centroSanitarioManager = CentroSanitarioManager.getInstance();
+
+        Logger logger = Logger.getInstance();
+
+        //Vaciamos la BD
+        crud.clearTables();
+
+        //Vaciamos todas las entidades guardadas en cualquier momento
+        centroSanitarioManager.clear();
+        localidadManager.clear();
+        provinciaManager.clear();
+
+        //Vaciamos el log
+        logger.clear();
+
+        String res = "";
+
+        res += String.format("Se han eliminado todos los centros sanitarios");
+        res += logger.getLog();
 
         return ResponseEntity.status(HttpStatus.OK).body(String.format("{\"results\":\"%s\"}", res));
     }

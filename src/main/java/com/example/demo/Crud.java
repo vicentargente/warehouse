@@ -178,7 +178,7 @@ public class Crud {
             //Crea la parte WHERE de la consulta segun los datos que le llegan
             String wherePart = "";
             if(localidad != null && localidad.length() > 0){
-                wherePart += "Localidad=(SELECT Codigo FROM localidad WHERE codigo='" + localidad + "')";
+                wherePart += "Localidad=(SELECT Codigo FROM localidad WHERE Nombre='" + localidad + "')";
             }
             if(cp != null && cp.length() > 0){
                 if(wherePart.length() > 0) wherePart += " AND ";

@@ -79,8 +79,8 @@ public class ExtractorEUS {
             // Direccion
             direccion = (String) jsonHospital.get("Direccion");
             // Latitud y longitud
-            latitud = Double.parseDouble((String) jsonHospital.get("LONWGS84"));
-            longitud = Double.parseDouble((String) jsonHospital.get("LATWGS84"));
+            latitud = Double.parseDouble((String) jsonHospital.get("LATWGS84"));
+            longitud = Double.parseDouble((String) jsonHospital.get("LONWGS84"));
             // Codigo Postal
             codigoPostalString = (String) jsonHospital.get("Codigopostal");
             try {

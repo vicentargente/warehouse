@@ -121,7 +121,7 @@ public class CentroSanitario {
                 "\t\t\"longitud\": \"" + this.longitud + "\",\n" +
                 "\t\t\"latitud\": \"" + this.latitud + "\",\n" +
                 "\t\t\"telefono\": \"" + this.telefono + "\",\n" +
-                "\t\t\"descripcion\": \"" + this.descripcion + "\",\n" +
+                "\t\t\"descripcion\": \"" + (this.descripcion == null ? null : this.descripcion.replace("\n"," ").replace("\"","\\\"")) + "\",\n" +
                 "\t\t\"localidad\": {\n\t\t\t\"nombre\":\"" + this.localidad.getNombre() + "\",\n\t\t\t\"codigo\": \"" + this.localidad.getCodigo() + "\"\n\t\t},\n" +
                 "\t\t\"provincia\": {\n\t\t\t\"nombre\":\"" + this.localidad.getProvincia().getNombre() + "\",\n\t\t\t\"codigo\": \"" + this.localidad.getProvincia().getCodigo() + "\"\n\t\t}\n" +
                 "\t}\n";

@@ -171,10 +171,34 @@ public class Crud {
         return null;
     }
 
-    public CentroSanitario[] getCentrosSanitarios(){
+    public CentroSanitario[] getCentrosSanitarios(String localidad, String cp, String provincia, String tipo){
         try {
             Statement stmt = conn.createStatement();
-            ResultSet resultados = stmt.executeQuery("SELECT * FROM centro_sanitario");
+
+            //Crea la parte WHERE de la consulta segun los datos que le llegan
+            String wherePart = "";
+            if(localidad != null && localidad.length() > 0){
+                wherePart += "Localidad=(SELECT Codigo FROM localidad WHERE codigo='" + localidad + "')";
+            }
+            if(cp != null && cp.length() > 0){
+                if(wherePart.length() > 0) wherePart += " AND ";
+                wherePart += "CodigoPostal=" + cp;
+            }
+            if(provincia != null && provincia.length() > 0){
+                if (wherePart.length() > 0) wherePart += " AND ";
+                wherePart += "Localidad IN (SELECT l.Codigo FROM localidad l, provincia p WHERE l.Cod_provincia=p.Codigo AND p.Nombre='" + provincia + "')";
+            }
+            if(tipo != null && tipo.length() > 0){
+                if (wherePart.length() > 0) wherePart += " AND ";
+                wherePart += "Tipo='" + tipo + "'";
+            }
+            
+            if(wherePart.length() > 0){
+                wherePart = " WHERE " + wherePart;
+            }
+
+            //Ejecuta la consulta
+            ResultSet resultados = stmt.executeQuery("SELECT * FROM centro_sanitario" + wherePart);
 
             if(resultados == null) return null;
 

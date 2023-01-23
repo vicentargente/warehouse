@@ -114,16 +114,16 @@ public class CentroSanitario {
     @Override
     public String toString() {
         return "\n\t{\n" +
-                "\t\tnombre: '" + this.nombre + "',\n" +
-                "\t\ttipo: '" + this.tipo + "',\n" +
-                "\t\tdireccion: '" + this.direccion + "',\n" +
-                "\t\tcp: " + this.codigoPostal + ",\n" +
-                "\t\tlongitud: " + this.longitud + ",\n" +
-                "\t\tlatitud: " + this.latitud + ",\n" +
-                "\t\ttelefono: " + this.telefono + ",\n" +
-                "\t\tdescripcion: '" + this.descripcion + "',\n" +
-                "\t\tlocalidad: {\n\t\t\tnombre:'" + this.localidad.getNombre() + "',\n\t\t\tcodigo: '" + this.localidad.getCodigo() + "'\n\t\t},\n" +
-                "\t\tprovincia: {\n\t\t\tnombre:'" + this.localidad.getProvincia().getNombre() + "',\n\t\t\tcodigo: '" + this.localidad.getProvincia().getCodigo() + "'\n\t\t}\n" +
+                "\t\t\"nombre\": \"" + this.nombre + "\",\n" +
+                "\t\t\"tipo\": \"" + this.tipo + "\",\n" +
+                "\t\t\"direccion\": \"" + this.direccion + "\",\n" +
+                "\t\t\"cp\": \"" + this.codigoPostal + "\",\n" +
+                "\t\t\"longitud\": \"" + this.longitud + "\",\n" +
+                "\t\t\"latitud\": \"" + this.latitud + "\",\n" +
+                "\t\t\"telefono\": \"" + this.telefono + "\",\n" +
+                "\t\t\"descripcion\": \"" + this.descripcion + "\",\n" +
+                "\t\t\"localidad\": {\n\t\t\t\"nombre\":\"" + this.localidad.getNombre() + "\",\n\t\t\t\"codigo\": \"" + this.localidad.getCodigo() + "\"\n\t\t},\n" +
+                "\t\t\"provincia\": {\n\t\t\t\"nombre\":\"" + this.localidad.getProvincia().getNombre() + "\",\n\t\t\t\"codigo\": \"" + this.localidad.getProvincia().getCodigo() + "\"\n\t\t}\n" +
                 "\t}\n";
     }
 

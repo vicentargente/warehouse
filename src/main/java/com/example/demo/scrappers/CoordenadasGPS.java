@@ -30,6 +30,8 @@ public class CoordenadasGPS {
     WebDriverWait shortWaiting;
 
     private CoordenadasGPS() {
+        System.setProperty("webdriver.chrome.driver", "C:/chromedriver.exe");
+
         // Creamos una instancia de Chrome
         this.driver = new ChromeDriver();
 

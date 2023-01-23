@@ -60,4 +60,8 @@ public class CentroSanitarioManager {
         this.centers.clear();
         this.currentId = 0;
     }
+
+    public int getAmount(){
+        return this.centers.size();
+    }
 }

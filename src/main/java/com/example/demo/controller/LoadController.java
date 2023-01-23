@@ -80,11 +80,16 @@ public class LoadController {
                 extractorIB.convertir();
             }
 
-            crud.createProvincia(provinciaManager.obtenerProvincias());
-            crud.createLocalidad(localidadManager.obtenerLocalidades());
-            crud.createHospital(centroSanitarioManager.obtenerCentrosSanitarios());
+            if(cv || eus || ib){
+                crud.createProvincia(provinciaManager.obtenerProvincias());
+                crud.createLocalidad(localidadManager.obtenerLocalidades());
+                crud.createHospital(centroSanitarioManager.obtenerCentrosSanitarios());
+            }
 
-            res = logger.getLog();
+            res = "";
+
+            res += String.format("Se ha añadido %d centros sanitarios exitosamente\\n", centroSanitarioManager.getAmount());
+            res += logger.getLog();
 
         } catch (IOException e) {
             e.printStackTrace();

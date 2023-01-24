@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.sql.SQLException;
-import java.util.Arrays;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,14 +44,11 @@ public class QueryController {
         if(centrosSanitarios.length > 0){
             for (int i = 0; i < centrosSanitarios.length - 1; i++) {
                 jsonRes += centrosSanitarios[i].toString() + ",";
-                // System.out.println(i + " " + centrosSanitarios[i].getNombre());
             }
             jsonRes += centrosSanitarios[centrosSanitarios.length - 1].toString();
         }
         jsonRes += "]";
         
-
-        //return ResponseEntity.status(HttpStatus.OK).body(Arrays.toString(crud.getCentrosSanitarios(loc, cp, prov, tipo)));
         return ResponseEntity.status(HttpStatus.OK).body(jsonRes);
     }
 }

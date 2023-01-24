@@ -121,7 +121,7 @@ public class ExtractorEUS {
             nombreLocalidad = (String) jsonHospital.get("Municipio");
             localidad = localidadManager.crearLocalidad(nombreLocalidad, provincia);
 
-            if(!centroSanitarioManager.crearHospital(nombre, Tipodecentro, direccion, codigoPostal, longitud, latitud, telefono, descripcion, localidad)){
+            if(!centroSanitarioManager.crearHospital(nombre, tipo, direccion, codigoPostal, longitud, latitud, telefono, descripcion, localidad)){
                 logger.log("EUS -> " + nombre + " esta repetido (solo se guarda una vez)");
             }
 

@@ -1,15 +1,6 @@
 package com.example.demo.util;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import com.example.demo.entidades.Localidad;
 import com.example.demo.entidades.Provincia;
@@ -26,7 +17,7 @@ public class LocalidadManager {
     private HashMap<String, Localidad> towns;
     private int currentId;
 
-    private String persistenceFilePath;
+    //private String persistenceFilePath;
 
     private LocalidadManager() {
         this.towns = new HashMap<String, Localidad>();

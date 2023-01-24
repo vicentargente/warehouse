@@ -84,7 +84,7 @@ public class LoadController {
 
             res = "";
 
-            res += String.format("Se ha añadido %d centros sanitarios exitosamente\\n", centroSanitarioManager.getAmount());
+            res += String.format("El almacén contiene %d centros sanitarios\\n", centroSanitarioManager.getAmount());
             res += logger.getLog();
 
         } catch (IOException e) {
